@@ -1,0 +1,17 @@
+def solution(N):
+    binarycorr = str(bin(N))[2:]
+    gapcnt = list()
+    if binarycorr.count('1') < 2:
+        return 0
+    for i in range(0, len(binarycorr)):
+        cnt = 0
+        if binarycorr[i] == '1':
+            for y in range(i + 1, len(binarycorr)):
+                if binarycorr[i+1:].count('1') > 0:
+                    if binarycorr[y] == '1':
+                        break;
+                    elif binarycorr[y] == '0':
+                        cnt += 1
+            gapcnt.append(cnt)
+    return max(gapcnt)
+Analysis s
